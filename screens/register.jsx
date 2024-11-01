@@ -1,5 +1,7 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { FIREBASE_AUTH } from '../firebaseConfig'
 
 const Register = ( { navigation } ) => {
 
@@ -7,6 +9,21 @@ const Register = ( { navigation } ) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const auth = FIREBASE_AUTH;
+
+  const registerHandler = async () => {
+    if (password != confirmPassword) {
+      alert(' Passord does not match!')
+    }
+    else {
+      try {
+        const response = await createUserWithEmailAndPassword(auth, email, confirmPassword);
+        console.log(response)
+      } catch(error) {
+        alert('Sign up failed: ' + error.message)
+      }
+    }
+  }
 
 
 return (
@@ -52,12 +69,10 @@ return (
               />
           </View>
 
-          <View style={[styles.button,]}>
-              <Text style={[styles.buttonText]} >Register</Text>
-              <TouchableOpacity 
-              onPress={() => {}}
-              style={[styles.buttonOutline]}
-              />  
+          <View >
+              <TouchableOpacity style={[styles.button,]} onPress={registerHandler}>
+                  <Text style={[styles.buttonText]} >Register</Text>
+              </TouchableOpacity>
           </View>
 
           <TouchableOpacity style={[styles.link,]} onPress={ () => navigation.goBack()}>

@@ -1,10 +1,23 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
+import { FIREBASE_AUTH } from '../firebaseConfig'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 const Login = ( { navigation } ) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const auth = FIREBASE_AUTH;
+
+    const LoginHandler = async () => {
+        try {
+            const response = await signInWithEmailAndPassword(auth, email, password);
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+            alert('Sign in failed: ' + error.message)
+        }
+    }
 
 
   return (
@@ -34,12 +47,10 @@ const Login = ( { navigation } ) => {
                 />
             </View>
 
-            <View style={[styles.button,]}>
-                <Text style={[styles.buttonText]} >Login</Text>
-                <TouchableOpacity 
-                onPress={() => {}}
-                style={[styles.buttonOutline]}
-                />  
+            <View >
+                <TouchableOpacity style={[styles.button,]} onPress={LoginHandler}>
+                    <Text style={[styles.buttonText]} >Login</Text>
+                </TouchableOpacity>
             </View>
 
             <TouchableOpacity style={[styles.link,]} onPress={ () => navigation.navigate('Register')}>
