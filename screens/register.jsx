@@ -52,7 +52,7 @@ return (
           </View>
 
           <View style={[styles.button,]}>
-              <Text style={[styles.buttonText]} >Login</Text>
+              <Text style={[styles.buttonText]} >Register</Text>
               <TouchableOpacity 
               onPress={() => {}}
               style={[styles.buttonOutline]}
@@ -154,9 +154,7 @@ const styles = StyleSheet.create({
   },
 
   link: {
-    
-    display: 'inline-block',
-
+    flexDirection: 'row',
   },
 
   newAccountText: {

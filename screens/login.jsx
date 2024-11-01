@@ -42,7 +42,7 @@ const login = ( { navigation } ) => {
                 />  
             </View>
 
-            <TouchableOpacity onPress={ () => navigation.navigate('register')}>
+            <TouchableOpacity style={[styles.link,]} onPress={ () => navigation.navigate('register')}>
                 <Text>Don't have an account?</Text>
                 <Text style={[styles.newAccountText]}> Create new account</Text>
             </TouchableOpacity>
@@ -134,6 +134,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         fontSize: 20,
+    },
+
+
+    link: {
+        flexDirection: 'row',
     },
 
 
