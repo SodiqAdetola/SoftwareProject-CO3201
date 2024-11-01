@@ -1,7 +1,7 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 
-const register = ( { navigation } ) => {
+const Register = ( { navigation } ) => {
 
   const [username, setUserName] = useState('')
   const [email, setEmail] = useState('')
@@ -73,7 +73,7 @@ return (
 )
 }
 
-export default register
+export default Register
 
 const styles = StyleSheet.create({
 

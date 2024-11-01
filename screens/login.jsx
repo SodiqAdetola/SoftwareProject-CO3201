@@ -1,7 +1,7 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 
-const login = ( { navigation } ) => {
+const Login = ( { navigation } ) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -42,7 +42,7 @@ const login = ( { navigation } ) => {
                 />  
             </View>
 
-            <TouchableOpacity style={[styles.link,]} onPress={ () => navigation.navigate('register')}>
+            <TouchableOpacity style={[styles.link,]} onPress={ () => navigation.navigate('Register')}>
                 <Text>Don't have an account?</Text>
                 <Text style={[styles.newAccountText]}> Create new account</Text>
             </TouchableOpacity>
@@ -56,7 +56,7 @@ const login = ( { navigation } ) => {
   )
 }
 
-export default login
+export default Login
 
 const styles = StyleSheet.create({
 
