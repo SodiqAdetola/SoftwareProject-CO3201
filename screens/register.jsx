@@ -6,6 +6,7 @@ const Register = ( { navigation } ) => {
   const [username, setUserName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
 
 return (
@@ -44,8 +45,8 @@ return (
 
               <TextInput 
               placeholder='Confirm Password' 
-              value={password} 
-              onChangeText={text => setPassword(text)} 
+              value={confirmPassword} 
+              onChangeText={text => setConfirmPassword(text)} 
               style={styles.input}
               secureTextEntry
               />
