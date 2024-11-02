@@ -13,7 +13,7 @@ const Register = ( { navigation } ) => {
 
   const registerHandler = async () => {
     if (password != confirmPassword) {
-      alert(' Passord does not match!')
+      alert(' Password does not match!')
     }
     else {
       try {
