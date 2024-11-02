@@ -76,7 +76,7 @@ return (
           </View>
 
           <TouchableOpacity style={[styles.link,]} onPress={ () => navigation.goBack()}>
-              <Text>Already have an account?</Text>
+              <Text style={styles.white} >Already have an account?</Text>
               <Text style={[styles.newAccountText]}> Log in</Text>
           </TouchableOpacity>
           
@@ -176,5 +176,9 @@ const styles = StyleSheet.create({
   newAccountText: {
       color: '#72b7ff',
       marginBottom: '50',
-  }
+  },
+
+    white: {
+        color: 'white',
+    }
 })

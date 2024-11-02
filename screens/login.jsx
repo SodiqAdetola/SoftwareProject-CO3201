@@ -1,9 +1,10 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FIREBASE_AUTH } from '../firebaseConfig'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 
 const Login = ( { navigation } ) => {
+
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -31,7 +32,7 @@ const Login = ( { navigation } ) => {
         <KeyboardAvoidingView style={styles.InputContainer}>
         <View style={styles.InnerInputContainer}>
             <View>
-                <TextInput 
+                <TextInput
                 placeholder='Email' 
                 value={email} 
                 onChangeText={text => setEmail(text)} 
@@ -54,7 +55,7 @@ const Login = ( { navigation } ) => {
             </View>
 
             <TouchableOpacity style={[styles.link,]} onPress={ () => navigation.navigate('Register')}>
-                <Text>Don't have an account?</Text>
+                <Text style={styles.white} >Don't have an account?</Text>
                 <Text style={[styles.newAccountText]}> Create new account</Text>
             </TouchableOpacity>
             
@@ -156,5 +157,9 @@ const styles = StyleSheet.create({
     newAccountText: {
         color: '#72b7ff',
         marginBottom: '50',
+    },
+
+    white: {
+        color: 'white',
     }
 })
